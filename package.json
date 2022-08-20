@@ -1,0 +1,31 @@
+{
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "postinstall": "npm run build",
+    "release": "lerna publish from-package --yes",
+    "version": "lerna version"
+  },
+  "lint-staged": {
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ],
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^5.4.3"
+  },
+  "dependencies": {
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.5.0",
+    "typescript": "^4.7.4"
+  }
+}

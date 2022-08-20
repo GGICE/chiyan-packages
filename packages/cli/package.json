@@ -1,0 +1,59 @@
+{
+  "name": "@chiyan-dev/cli",
+  "version": "0.2.0",
+  "description": "CLI 工具",
+  "main": "dist/cli.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.8",
+    "@types/inquirer": "^7.3.1",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.31",
+    "jest": "^26.6.3",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.1",
+    "ts-jest": "^26.5.2",
+    "typescript": "^4.5.2",
+    "yorkie": "^2.0.0"
+  },
+  "bin": {
+    "cy": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "npm run watch & supervisor -w dist dist/src/app.js",
+    "build": "tsc --build ./tsconfig.json",
+    "watch": "tsc --watch",
+    "release": "npm run test && npm run build && npm publish",
+    "lint": "eslint --ext .ts,.tsx src",
+    "lint:fix": "eslint --fix --ext .ts,.tsx src",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "commander": "^8.3.0",
+    "fs-extra": "^9.1.0",
+    "inquirer": "^7.3.3",
+    "merge": "^2.1.1",
+    "update-check": "^1.5.4"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint src --fix --ext .js,.jsx,.ts,.tsx"
+    ],
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+/coverage
+/packages/*/lib
+/packages/**/fixtures/**/dist
+node_modules
+.DS_Store
+.idea
+dist

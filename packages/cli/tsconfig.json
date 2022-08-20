@@ -1,0 +1,10 @@
+{
+  "extends": "../web-configs/static/tsconfig-nodejs.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["node", "jest"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "test", "dist"]
+}

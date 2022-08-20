@@ -1,0 +1,29 @@
+{
+  "name": "@chiyan-dev/web-configs",
+  "version": "0.1.0",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist && ../../node_modules/.bin/tsc --build ./tsconfig.json",
+    "watch": "../../node_modules/.bin/tsc --watch",
+    "release": "npm run build && npm publish"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "static"
+  ],
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint": "^8.3.0",
+    "eslint-config-alloy": "^4.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.6"
+  }
+}
